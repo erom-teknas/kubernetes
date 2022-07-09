@@ -1,0 +1,2 @@
+#Remove taint from the Node
+kubectl taint node minikube-m02 app-
