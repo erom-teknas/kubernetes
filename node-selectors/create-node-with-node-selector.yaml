@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    resources: {}
+  nodeSelector:
+    env: dev
+      # Node selector doesn't require match labels, just provide the key value pair as map and not array in case of node selector, LIMITATIONS: JUST A SINGLE LABEL, this is why use NODE AFFINITY

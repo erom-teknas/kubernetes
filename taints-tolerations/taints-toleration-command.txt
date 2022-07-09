@@ -1,0 +1,6 @@
+#Add taint to a node
+kubectl taint node minikube-m02 app=cipg:NoSchedule [key=value:effect, where effect can be NoSchedule, PreferNoSchedule and NoExecute]
+#Remove taint from the Node
+kubectl taint node minikube-m02 app-
+#Overwrite the taint
+kubectl taint node minikube-m03 --overwrite=true app=dev:NoExecute [one effect with key value]

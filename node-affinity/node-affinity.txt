@@ -1,0 +1,14 @@
+#Node affinity uses Node labels, however when the pod has to be run on the node based on multiple label conditions noe affinity helps instead of node selector
+kubectl get node --selector=env=dev
+
+#YAML structure ndees
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+	  nodeSelectorTerms:
+	  - matchExpressions:
+	    - key:
+		  operator:
+		  values:
+		  - 

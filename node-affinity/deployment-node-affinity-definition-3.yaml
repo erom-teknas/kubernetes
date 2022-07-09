@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-affinity
+  labels:
+    app: demo-deployment-affinity
+spec:
+  selector:
+    matchLabels:
+      name: pod-affinity
+  replicas: 10
+  template:
+    metadata:
+      name: pod-affinity
+      labels:
+        name: pod-affinity
+    spec:
+      containers:
+      - name: nginx-affinity
+        image: nginx
+      - name: busybox-affinity
+        image: busybox
+        command:
+        - sh
+        - -c
+        - sleep 3600
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: application
+                operator: In
+                values:
+                - cipg
+
+

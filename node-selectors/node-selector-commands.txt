@@ -1,0 +1,6 @@
+#Node selector commands.
+#Node should be labelled.
+kubectl label node minikube-m02 env=dev
+
+#Get node based on labels
+kubectl get nodes --selector env=dev
