@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limit-range-mem
+  labels:
+    name: limit-range-mem
+  namespace: teknas-namespace
+spec:
+  limits:
+  - default:
+      memory: 100Mi
+    defaultRequest:
+      memory: 20Mi
+    type: Container

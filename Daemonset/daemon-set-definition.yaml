@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemon-set-demo
+  labels:
+    names: daemon-set-demo
+  namespace: teknas-namespace
+spec:
+  selector:
+    matchLabels:
+      name: daemon-container
+  template:
+    metadata:
+      name: daemon-container
+      labels:
+        name: daemon-container
+    spec:
+      containers:
+      - name: fluentd-elasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
